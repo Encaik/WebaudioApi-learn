@@ -84,49 +84,45 @@
                 <h1>Piano</h1>
             </div>
             <div class="wk">
-                <div class="white" id="049" onclick="console.log('a');wav('049', '#fff');">
+                <div class="white" id="049" onclick="wav('049', '#fff');">
                     <p class="wt">a</p>
                 </div>
-                <div class="white" id="051" onclick="console.log('s');wav('051','#fff');">
+                <div class="white" id="051" onclick="wav('051','#fff');">
                     <p class="wt">s</p>
                 </div>
-                <div class="white" id="053" onclick="console.log('d');wav('053','#fff');">
+                <div class="white" id="053" onclick="wav('053','#fff');">
                     <p class="wt">d</p>
                 </div>
-                <div class="white" id="054" onclick="console.log('f');wav('054','#fff');">
+                <div class="white" id="054" onclick="wav('054','#fff');">
                     <p class="wt">f</p>
                 </div>
-                <div class="white" id="056" onclick="console.log('g');wav('056','#fff');">
+                <div class="white" id="056" onclick="wav('056','#fff');">
                     <p class="wt">g</p>
                 </div>
-                <div class="white" id="058" onclick="console.log('h');wav('058','#fff');">
+                <div class="white" id="058" onclick="wav('058','#fff');">
                     <p class="wt">h</p>
                 </div>
-                <div class="white" id="060" onclick="console.log('j');wav('060','#fff');">
+                <div class="white" id="060" onclick="wav('060','#fff');">
                     <p class="wt">j</p>
-                </div>
-                <div class="white" id="061" onclick="console.log('k');wav('061','#fff');">
-                    <p class="wt">k</p>
                 </div>
             </div>
             <div class="bk">
-                <div class="black" id="050" onclick="console.log('w');wav('050','#000');">
+                <div class="black" id="050" onclick="wav('050','#000');">
                     <p class="bt">w</p>
                 </div>
-                <div class="black" id="052" onclick="console.log('e');wav('052','#000');">
+                <div class="black" id="052" onclick="wav('052','#000');">
                     <p class="bt">e</p>
                 </div>
                 <div class="null"></div>
-                <div class="black" id="055" onclick="console.log('t');wav('055','#000');">
+                <div class="black" id="055" onclick="wav('055','#000');">
                     <p class="bt">t</p>
                 </div>
-                <div class="black" id="057" onclick="console.log('y');wav('057','#000');">
+                <div class="black" id="057" onclick="wav('057','#000');">
                     <p class="bt">y</p>
                 </div>
-                <div class="black" id="059" onclick="console.log('u');wav('059','#000');">
+                <div class="black" id="059" onclick="wav('059','#000');">
                     <p class="bt">u</p>
                 </div>
-                <div class="null"></div>
             </div>
         </div>
     </div>
@@ -137,64 +133,92 @@
         document.onkeydown = function (e) {
             var theEvent = window.event || e;
             var code = theEvent.keyCode || theEvent.which;
+            //小字组
+            if (code == 65 && code == 96) {
+                wav('037', '049', "#fff");
+            }
+            if (code == 87 && e.altKey) {
+                wav('038', '050', "#000");
+            }
+            if (code == 83 && e.altKey) {
+                wav('039', '051', "#fff");
+            }
+            if (code == 69 && e.altKey) {
+                wav('040', '052', "#000");
+            }
+            if (code == 68 && e.altKey) {
+                wav('041', '053', "#fff");
+            }
+            if (code == 70 && e.altKey) {
+                wav('042', '054', "#fff");
+            }
+            if (code == 84 && e.altKey) {
+                wav('043', '055', "#000");
+            }
+            if (code == 71 && e.altKey) {
+                wav('044', '056', "#fff");
+            }
+            if (code == 89 && e.altKey) {
+                wav('045', '057', "#000");
+            }
+            if (code == 72 && e.altKey) {
+                wav('046', '058', "#fff");
+            }
+            if (code == 85 && e.altKey) {
+                wav('047', '059', "#000");
+            }
+            if (code == 74 && e.altKey) {
+                wav('048', '060', "#fff");
+            }
+            //小字二组
+            if (code == 65 && e.ctrlKey) {
+                wav('061', '049', "#fff");
+            }
+            //小字三组
+            if (code == 65 && e.shiftKey) {
+                wav('073', '049', "#fff");
+            }
             //小字一组
             //白键
-            if (code == 65) {
-                console.log("a");
-                wav('049', "#fff");
+            if (code == 65 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('049', '049', "#fff");
             }
-            if (code == 83) {
-                console.log("s");
-                wav('051', "#fff");
+            if (code == 87 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('050', '050', "#000");
             }
-            if (code == 68) {
-                console.log("d");
-                wav('053', "#fff");
+            if (code == 83 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('051', '051', "#fff");
             }
-            if (code == 70) {
-                console.log("f");
-                wav('054', "#fff");
+            if (code == 69 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('052', '052', "#000");
             }
-            if (code == 71) {
-                console.log("g");
-                wav('056', "#fff");
+            if (code == 68 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('053', '053', "#fff");
             }
-            if (code == 72) {
-                console.log("h");
-                wav('058', "#fff");
+            if (code == 70 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('054', '054', "#fff");
             }
-            if (code == 74) {
-                console.log("j");
-                wav('060', "#fff");
+            if (code == 84 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('055', '055', "#000");
             }
-            if (code == 75) {
-                console.log("k");
-                wav('061', "#fff");
+            if (code == 71 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('056', '056', "#fff");
             }
-            //黑键
-            if (code == 87) {
-                console.log("w");
-                wav('050', "#000");
+            if (code == 89 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('057', '057', "#000");
             }
-            if (code == 69) {
-                console.log("e");
-                wav('052', "#000");
+            if (code == 72 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('058', '058', "#fff");
             }
-            if (code == 84) {
-                console.log("t");
-                wav('055', "#000");
+            if (code == 85 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('059', '059', "#000");
             }
-            if (code == 89) {
-                console.log("y");
-                wav('057', "#000");
-            }
-            if (code == 85) {
-                console.log("u");
-                wav('059', "#000");
-            }
+            if (code == 74 && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                wav('060', '060', "#fff");
+            }   
         }
-        async function wav(id,color) {
-            const URL = 'piano/German Concert D ' + id + ' 083.wav';
+        async function wav(name,id,color) {
+            const URL = 'piano/German Concert D ' + name + ' 083.wav';
             key = document.getElementById(id);
             key.style.backgroundColor = "#3f3f3f";
             const audioContext = new AudioContext();
