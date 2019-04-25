@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piano</title>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            background-color: rgb(131, 160, 255);
+            overflow-y: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .key {
+            margin: 6em 0;
+        }
+
+        .wk {
+            text-align: center;
+        }
+
+        .bk {
+            text-align: center;
+            margin: 0 52.5px;
+            position: relative;
+            top: -510px;
+        }
+
+        .white {
+            margin: 0 -2.5px;
+            background-color: #fff;
+            width: 100px;
+            height: 500px;
+            float: left;
+            border: #000 solid 5px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .black {
+            margin: 0 12.5px;
+            color: #fff;
+            background-color: rgb(29, 29, 29);
+            width: 80px;
+            height: 320px;
+            float: left;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .null {
+            margin: 0 12.5px;
+            width: 80px;
+            height: 1px;
+            float: left;
+            display: hidden;
+        }
+
+        .wt {
+            font-size: 40px;
+            position: relative;
+            top: 400px;
+        }
+
+        .bt {
+            font-size: 40px;
+            position: relative;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="key">
+            <div class="wk">
+                <div class="white" id="049" onclick="console.log('a');wav('049', '#fff');">
+                    <p class="wt">a</p>
+                </div>
+                <div class="white" id="051" onclick="console.log('s');wav('051','#fff');">
+                    <p class="wt">s</p>
+                </div>
+                <div class="white" id="053" onclick="console.log('d');wav('053','#fff');">
+                    <p class="wt">d</p>
+                </div>
+                <div class="white" id="054" onclick="console.log('f');wav('054','#fff');">
+                    <p class="wt">f</p>
+                </div>
+                <div class="white" id="056" onclick="console.log('g');wav('056','#fff');">
+                    <p class="wt">g</p>
+                </div>
+                <div class="white" id="058" onclick="console.log('h');wav('058','#fff');">
+                    <p class="wt">h</p>
+                </div>
+                <div class="white" id="060" onclick="console.log('j');wav('060','#fff');">
+                    <p class="wt">j</p>
+                </div>
+                <div class="white" id="061" onclick="console.log('k');wav('061','#fff');">
+                    <p class="wt">k</p>
+                </div>
+            </div>
+            <div class="bk">
+                <div class="black" id="050" onclick="console.log('w');wav('050','#000');">
+                    <p class="bt">w</p>
+                </div>
+                <div class="black" id="052" onclick="console.log('e');wav('052','#000');">
+                    <p class="bt">e</p>
+                </div>
+                <div class="null"></div>
+                <div class="black" id="055" onclick="console.log('t');wav('055','#000');">
+                    <p class="bt">t</p>
+                </div>
+                <div class="black" id="057" onclick="console.log('y');wav('057','#000');">
+                    <p class="bt">y</p>
+                </div>
+                <div class="black" id="059" onclick="console.log('u');wav('059','#000');">
+                    <p class="bt">u</p>
+                </div>
+                <div class="null"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.body.onselectstart = function () {
+            return false;
+        }
+        document.onkeydown = function (e) {
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which;
+            if (code == 65) {
+                console.log("a");
+                wav('049', "#fff");
+            }
+            if (code == 83) {
+                console.log("s");
+                wav('051', "#fff");
+            }
+            if (code == 68) {
+                console.log("d");
+                wav('053', "#fff");
+            }
+            if (code == 70) {
+                console.log("f");
+                wav('054', "#fff");
+            }
+            if (code == 71) {
+                console.log("g");
+                wav('056', "#fff");
+            }
+            if (code == 72) {
+                console.log("h");
+                wav('058', "#fff");
+            }
+            if (code == 74) {
+                console.log("j");
+                wav('060', "#fff");
+            }
+            if (code == 75) {
+                console.log("k");
+                wav('061', "#fff");
+            }
+
+            if (code == 87) {
+                console.log("w");
+                wav('050', "#000");
+            }
+            if (code == 69) {
+                console.log("e");
+                wav('052', "#000");
+            }
+            if (code == 84) {
+                console.log("t");
+                wav('055', "#000");
+            }
+            if (code == 89) {
+                console.log("y");
+                wav('057', "#000");
+            }
+            if (code == 85) {
+                console.log("u");
+                wav('059', "#000");
+            }
+        }
+
+        async function wav(id,color) {
+            const URL = 'piano/German Concert D ' + id + ' 083.wav';
+            key = document.getElementById(id);
+            key.style.backgroundColor = "#3f3f3f";
+            const audioContext = new AudioContext();
+            const playAudio = function (buffer) {
+                const source = audioContext.createBufferSource();
+                source.buffer = buffer;
+                source.connect(audioContext.destination);
+                source.start();
+            };
+            const getBuffer = function (url) {
+                const request = new XMLHttpRequest();
+                return new Promise((resolve, reject) => {
+                    request.open('GET', url, true);
+                    request.responseType = 'arraybuffer';
+                    request.onload = () => {
+                        audioContext.decodeAudioData(request.response, buffer => buffer ? resolve(
+                            buffer) : reject('decoding error'));
+                    };
+                    request.onerror = error => reject(error);
+                    request.send();
+                });
+            };
+            const buffer = await getBuffer(URL);
+            buffer && playAudio(buffer);
+            key.style.backgroundColor = color;
+        }
+    </script>
+</body>
+
+</html>
