@@ -20,7 +20,8 @@
         }
 
         .key {
-            margin: 6em 0;
+            margin: 3em 0;
+            text-align: center;
         }
 
         .wk {
@@ -77,8 +78,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="key">
+            <div>
+                <h1>Piano</h1>
+            </div>
             <div class="wk">
                 <div class="white" id="049" onclick="console.log('a');wav('049', '#fff');">
                     <p class="wt">a</p>
@@ -133,6 +137,8 @@
         document.onkeydown = function (e) {
             var theEvent = window.event || e;
             var code = theEvent.keyCode || theEvent.which;
+            //小字一组
+            //白键
             if (code == 65) {
                 console.log("a");
                 wav('049', "#fff");
@@ -165,7 +171,7 @@
                 console.log("k");
                 wav('061', "#fff");
             }
-
+            //黑键
             if (code == 87) {
                 console.log("w");
                 wav('050', "#000");
@@ -187,7 +193,6 @@
                 wav('059', "#000");
             }
         }
-
         async function wav(id,color) {
             const URL = 'piano/German Concert D ' + id + ' 083.wav';
             key = document.getElementById(id);
