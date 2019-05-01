@@ -20,7 +20,7 @@ export default {
     Header,
     Footer,
     Music
-  }
+  },
 };
 </script>
 
@@ -29,5 +29,6 @@ body {
   margin: 0 auto;
   padding: 0;
   background-image: url('./assets/img/timg.jpg');
+  background-size: 100%;
 }
 </style>
