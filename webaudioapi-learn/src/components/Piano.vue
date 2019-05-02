@@ -5,8 +5,9 @@
         v-for="(skey, index) in keys"
         :key="index"
         :class="skey.kcolor"
+        :style="{'background-color':skey.kactive}"
         v-html="skey.hname"
-        @click="start(skey.mname)"
+        @click="start(skey)"
       ></div>
     </div>
     <div class="keyboard" v-else-if="mode==1">
@@ -14,8 +15,9 @@
         v-for="(skey, index) in keys"
         :key="index"
         :class="skey.kcolor"
+        :style="{'background-color':skey.kactive}"
         v-html="skey.kname"
-        @click="start(skey.mname)"
+        @click="start(skey)"
       ></div>
     </div>
     <div class="meau">
@@ -28,6 +30,7 @@
 <script>
 /* eslint-disable */
 import Tone from "tone";
+import { start } from 'repl';
 export default {
   data() {
     return {
@@ -37,217 +40,253 @@ export default {
           kcolor: "wk",
           hname: "C3",
           mname: "C3",
-          kname: "q"
+          kname: "q",
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "C<sup>#</sup>3",
           mname: "C#3",
-          kname: "↑q"
+          kname: "↑q",
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "D3",
           mname: "D3",
-          kname: "w"
+          kname: "w",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>3",
           mname: "D#3",
-          kname: "↑w"
+          kname: "↑w",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "E3",
           mname: "E3",
-          kname: "e"
+          kname: "e",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "F3",
           mname: "F3",
-          kname: "r"
+          kname: "r",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>3",
           mname: "F#3",
-          kname: "↑r"
+          kname: "↑r",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "G3",
           mname: "G3",
-          kname: "t"
+          kname: "t",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>3",
           mname: "G#3",
-          kname: "↑t"
+          kname: "↑t",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "A3",
           mname: "A3",
-          kname: "y"
+          kname: "y",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>3",
           mname: "A#3",
-          kname: "↑y"
+          kname: "↑y",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "B3",
           mname: "B3",
-          kname: "u"
+          kname: "u",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "C4",
           mname: "C4",
-          kname: "a"
+          kname: "a",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "C<sup>#</sup>4",
           mname: "C#4",
-          kname: "↑a"
+          kname: "↑a",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "D4",
           mname: "D4",
-          kname: "s"
+          kname: "s",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>4",
           mname: "D#4",
-          kname: "↑s"
+          kname: "↑s",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "E4",
           mname: "E4",
-          kname: "d"
+          kname: "d",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "F4",
           mname: "F4",
-          kname: "f"
+          kname: "f",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>4",
           mname: "F#4",
-          kname: "↑f"
+          kname: "↑f",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "G4",
           mname: "G4",
-          kname: "g"
+          kname: "g",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>4",
           mname: "G#4",
-          kname: "↑g"
+          kname: "↑g",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "A4",
           mname: "A4",
-          kname: "h"
+          kname: "h",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>4",
           mname: "A#4",
-          kname: "↑h"
+          kname: "↑h",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "B4",
           mname: "B4",
-          kname: "j"
+          kname: "j",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "C5",
           mname: "C5",
-          kname: "z"
+          kname: "z",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "C<sup>#</sup>5",
           mname: "C#5",
-          kname: "↑z"
+          kname: "↑z",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "D5",
           mname: "D5",
-          kname: "x"
+          kname: "x",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>5",
           mname: "D#5",
-          kname: "↑x"
+          kname: "↑x",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "E5",
           mname: "E5",
-          kname: "c"
+          kname: "c",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "F5",
           mname: "F5",
-          kname: "v"
+          kname: "v",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>5",
           mname: "F#5",
-          kname: "↑v"
+          kname: "↑v",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "G5",
           mname: "G5",
-          kname: "b"
+          kname: "b",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>5",
           mname: "G#5",
-          kname: "↑b"
+          kname: "↑b",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "A5",
           mname: "A5",
-          kname: "n"
+          kname: "n",
+          kactive:false
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>5",
           mname: "A#5",
-          kname: "↑n"
+          kname: "↑n",
+          kactive:false
         },
         {
           kcolor: "wk",
           hname: "B5",
           mname: "B5",
-          kname: "m"
+          kname: "m",
+          kactive:false
         }
       ]
     };
@@ -257,24 +296,96 @@ export default {
     document.onkeydown = function(e) {
       let key = window.event.keyCode;
       if (e.shiftKey) {
-        if (key == 81) {_this.start('C#3');}
-        if (key == 87) {_this.start('D#3');}
-        if (key == 82) {_this.start('F#3');}
-        if (key == 84) {_this.start('G#3');}
-        if (key == 89) {_this.start('A#3');}
+        if (key == 81) {let key=_this.keys[1];_this.kstar(key);_this.start(key)}
+        if (key == 87) {let key=_this.keys[3];_this.kstar(key);_this.start(key)}
+        if (key == 82) {let key=_this.keys[6];_this.kstar(key);_this.start(key)}
+        if (key == 84) {let key=_this.keys[8];_this.kstar(key);_this.start(key)}
+        if (key == 89) {let key=_this.keys[10];_this.kstar(key);_this.start(key)}
+
+        if (key == 65) {let key=_this.keys[13];_this.kstar(key);_this.start(key)}
+        if (key == 83) {let key=_this.keys[15];_this.kstar(key);_this.start(key)}
+        if (key == 70) {let key=_this.keys[18];_this.kstar(key);_this.start(key)}
+        if (key == 71) {let key=_this.keys[20];_this.kstar(key);_this.start(key)}
+        if (key == 72) {let key=_this.keys[22];_this.kstar(key);_this.start(key)}
+
+        if (key == 90) {let key=_this.keys[25];_this.kstar(key);_this.start(key)}
+        if (key == 88) {let key=_this.keys[27];_this.kstar(key);_this.start(key)}
+        if (key == 86) {let key=_this.keys[30];_this.kstar(key);_this.start(key)}
+        if (key == 66) {let key=_this.keys[32];_this.kstar(key);_this.start(key)}
+        if (key == 78) {let key=_this.keys[34];_this.kstar(key);_this.start(key)}
       } else {
-        if (key == 81) {_this.start('C3');}
-        if (key == 87) {_this.start('D3');}
-        if (key == 69) {_this.start('E3');}
-        if (key == 82) {_this.start('F3');}
-        if (key == 84) {_this.start('G3');}
-        if (key == 89) {_this.start('A3');}
-        if (key == 85) {_this.start('B3');}
+        if (key == 81) {let key=_this.keys[0];_this.kstar(key);_this.start(key)}
+        if (key == 87) {let key=_this.keys[2];_this.kstar(key);_this.start(key)}
+        if (key == 69) {let key=_this.keys[4];_this.kstar(key);_this.start(key)}
+        if (key == 82) {let key=_this.keys[5];_this.kstar(key);_this.start(key)}
+        if (key == 84) {let key=_this.keys[7];_this.kstar(key);_this.start(key)}
+        if (key == 89) {let key=_this.keys[9];_this.kstar(key);_this.start(key)}
+        if (key == 85) {let key=_this.keys[11];_this.kstar(key);_this.start(key)}
+
+        if (key == 65) {let key=_this.keys[12];_this.kstar(key);_this.start(key)}
+        if (key == 83) {let key=_this.keys[14];_this.kstar(key);_this.start(key)}
+        if (key == 68) {let key=_this.keys[16];_this.kstar(key);_this.start(key)}
+        if (key == 70) {let key=_this.keys[17];_this.kstar(key);_this.start(key)}
+        if (key == 71) {let key=_this.keys[19];_this.kstar(key);_this.start(key)}
+        if (key == 72) {let key=_this.keys[21];_this.kstar(key);_this.start(key)}
+        if (key == 74) {let key=_this.keys[23];_this.kstar(key);_this.start(key)}
+
+        if (key == 90) {let key=_this.keys[24];_this.kstar(key);_this.start(key)}
+        if (key == 88) {let key=_this.keys[26];_this.kstar(key);_this.start(key)}
+        if (key == 67) {let key=_this.keys[28];_this.kstar(key);_this.start(key)}
+        if (key == 86) {let key=_this.keys[29];_this.kstar(key);_this.start(key)}
+        if (key == 66) {let key=_this.keys[31];_this.kstar(key);_this.start(key)}
+        if (key == 78) {let key=_this.keys[33];_this.kstar(key);_this.start(key)}
+        if (key == 77) {let key=_this.keys[35];_this.kstar(key);_this.start(key)}
       }
+    };
+    document.onkeyup = function(e) {
+      let key = window.event.keyCode;
+        if (key == 81) {_this.kstop(_this.keys[1])}
+        if (key == 87) {_this.kstop(_this.keys[3]);}
+        if (key == 82) {_this.kstop(_this.keys[6]);}
+        if (key == 84) {_this.kstop(_this.keys[8]);}
+        if (key == 89) {_this.kstop(_this.keys[10]);}
+
+        if (key == 65) {_this.kstop(_this.keys[13])}
+        if (key == 83) {_this.kstop(_this.keys[15]);}
+        if (key == 70) {_this.kstop(_this.keys[18]);}
+        if (key == 71) {_this.kstop(_this.keys[20]);}
+        if (key == 72) {_this.kstop(_this.keys[22]);}
+
+        if (key == 90) {_this.kstop(_this.keys[25])}
+        if (key == 88) {_this.kstop(_this.keys[27]);}
+        if (key == 86) {_this.kstop(_this.keys[30]);}
+        if (key == 66) {_this.kstop(_this.keys[32]);}
+        if (key == 78) {_this.kstop(_this.keys[34]);}
+
+        if (key == 81) {_this.kstop(_this.keys[0]);}
+        if (key == 87) {_this.kstop(_this.keys[2]);}
+        if (key == 69) {_this.kstop(_this.keys[4]);}
+        if (key == 82) {_this.kstop(_this.keys[5]);}
+        if (key == 84) {_this.kstop(_this.keys[7]);}
+        if (key == 89) {_this.kstop(_this.keys[9]);}
+        if (key == 85) {_this.kstop(_this.keys[11]);}
+
+        if (key == 65) {_this.kstop(_this.keys[12]);}
+        if (key == 83) {_this.kstop(_this.keys[14]);}
+        if (key == 68) {_this.kstop(_this.keys[16]);}
+        if (key == 70) {_this.kstop(_this.keys[17]);}
+        if (key == 71) {_this.kstop(_this.keys[19]);}
+        if (key == 72) {_this.kstop(_this.keys[21]);}
+        if (key == 74) {_this.kstop(_this.keys[23]);}
+
+        if (key == 90) {_this.kstop(_this.keys[24]);}
+        if (key == 88) {_this.kstop(_this.keys[26]);}
+        if (key == 67) {_this.kstop(_this.keys[28]);}
+        if (key == 86) {_this.kstop(_this.keys[29]);}
+        if (key == 66) {_this.kstop(_this.keys[31]);}
+        if (key == 78) {_this.kstop(_this.keys[33]);}
+        if (key == 77) {_this.kstop(_this.keys[35]);}
     };
   },
   methods: {
-    start: function(mname) {
+    start: function(skey) {
       var synth = new Tone.Synth({
         envelope: {
           attack: 0.01,
@@ -283,7 +394,13 @@ export default {
           release: 2
         }
       }).toMaster();
-      synth.triggerAttackRelease(mname, "8n");
+      synth.triggerAttackRelease(skey.mname, "8n");
+    },
+    kstar: function(skey) {
+      skey.kactive = "#4d4d4d";
+    },
+    kstop: function(skey) {
+      skey.kactive = "";
     },
     handle: function () {
       this.mode = -this.mode;

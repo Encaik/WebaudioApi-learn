@@ -1,8 +1,6 @@
 <template>
     <div class="music">
-        .5333231222125111.61.6.52223.6.5
-        <br>
-        444341222125111.61.632211
+        dfgdgfds dsaazzdg aasaazjhg aadas
     </div>
 </template>
 
