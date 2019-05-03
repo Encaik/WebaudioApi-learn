@@ -30,6 +30,7 @@
 <script>
 /* eslint-disable */
 import Tone from "tone";
+//import SampleLibrary from "../assets/js/Tonejs-Instruments.js";
 import { start } from 'repl';
 export default {
   data() {
@@ -55,238 +56,238 @@ export default {
           hname: "D3",
           mname: "D3",
           kname: "w",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>3",
           mname: "D#3",
           kname: "↑w",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "E3",
           mname: "E3",
           kname: "e",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "F3",
           mname: "F3",
           kname: "r",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>3",
           mname: "F#3",
           kname: "↑r",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "G3",
           mname: "G3",
           kname: "t",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>3",
           mname: "G#3",
           kname: "↑t",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "A3",
           mname: "A3",
           kname: "y",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>3",
           mname: "A#3",
           kname: "↑y",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "B3",
           mname: "B3",
           kname: "u",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "C4",
           mname: "C4",
           kname: "a",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "C<sup>#</sup>4",
           mname: "C#4",
           kname: "↑a",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "D4",
           mname: "D4",
           kname: "s",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>4",
           mname: "D#4",
           kname: "↑s",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "E4",
           mname: "E4",
           kname: "d",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "F4",
           mname: "F4",
           kname: "f",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>4",
           mname: "F#4",
           kname: "↑f",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "G4",
           mname: "G4",
           kname: "g",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>4",
           mname: "G#4",
           kname: "↑g",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "A4",
           mname: "A4",
           kname: "h",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>4",
           mname: "A#4",
           kname: "↑h",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "B4",
           mname: "B4",
           kname: "j",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "C5",
           mname: "C5",
           kname: "z",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "C<sup>#</sup>5",
           mname: "C#5",
           kname: "↑z",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "D5",
           mname: "D5",
           kname: "x",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "D<sup>#</sup>5",
           mname: "D#5",
           kname: "↑x",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "E5",
           mname: "E5",
           kname: "c",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "F5",
           mname: "F5",
           kname: "v",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "F<sup>#</sup>5",
           mname: "F#5",
           kname: "↑v",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "G5",
           mname: "G5",
           kname: "b",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "G<sup>#</sup>5",
           mname: "G#5",
           kname: "↑b",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "A5",
           mname: "A5",
           kname: "n",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "bk",
           hname: "A<sup>#</sup>5",
           mname: "A#5",
           kname: "↑n",
-          kactive:false
+          kactive:""
         },
         {
           kcolor: "wk",
           hname: "B5",
           mname: "B5",
           kname: "m",
-          kactive:false
+          kactive:""
         }
       ]
     };
@@ -388,13 +389,13 @@ export default {
     start: function(skey) {
       var synth = new Tone.Synth({
         envelope: {
-          attack: 0.01,
-          decay: 0.05,
-          sustain: 0.5,
-          release: 2
+          attack: 0,
+          decay: 1,
+          sustain: 0.1,
+          release: 1
         }
       }).toMaster();
-      synth.triggerAttackRelease(skey.mname, "8n");
+      synth.triggerAttackRelease(skey.mname, "4n");
     },
     kstar: function(skey) {
       skey.kactive = "#4d4d4d";
